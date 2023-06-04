@@ -1,0 +1,37 @@
+﻿@model Post
+<h2>Добавление статьи</h2>
+<form asp-action="CreatePost" asp-controller="admin">
+    <p>
+        <label asp-for="Title">Название статьи</label><br />
+        <input type="text" asp-for="Title" />
+    </p>
+    <p>
+        <label asp-for="PublishDate">Дата публикации</label><br />
+        <input asp-for="PublishDate" type="date" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="Description">Описание статьи</label><br />
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </p>
+    <p>
+        <label asp-for="Content">Содержание статьи</label><br />
+        <textarea asp-for="Content" class="form-control"></textarea>
+    </p>
+    <p>
+        <select asp-for="CategoryId">
+            @foreach (Category category in ViewBag.Categories)
+            {
+                <option value="@category.Id">@category.Title</option>
+            }
+        </select>
+    </p>
+    <p>
+        <label>
+            <input asp-for="IsDraft" type="checkbox" />
+            черновик
+        </label>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

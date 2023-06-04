@@ -1,0 +1,21 @@
+﻿<form method="get">
+    <div>
+        <label>Категория: </label>
+        <select name="category" asp-items="Model.Categories"></select>
+
+        <input type="submit" value="Сортировать" />
+    </div>
+</form>
+
+<h2>Посты</h2>
+@foreach (var p in Model.Posts)
+{
+    <h3>@p.Title</h3>
+    <p>@p.Category.Title</p>
+    <p>@p.PublishDate.ToShortDateString()</p>
+    <p>@p.Description</p>
+    <p>
+        <a class="btn-sm btn-primary" asp-action="ViewPost" asp-route-id="@p.Id">Читать статью</a>
+    </p>
+}
+

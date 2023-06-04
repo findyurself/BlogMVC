@@ -1,0 +1,17 @@
+﻿@model Category
+
+<h2>Редактирование категории</h2>
+<form asp-action="EditCategory" asp-controller="Admin" asp-route-id = "@Model.Id">
+    <p>
+        <label asp-for="Title">Название категории</label><br />
+        <input type="text" asp-for="Title" />
+    </p>
+    <p>
+        <label asp-for="Description">Описание категории</label><br />
+        <input type="text" asp-for="Description" />
+    </p>
+
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
